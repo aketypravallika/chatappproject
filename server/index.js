@@ -10,7 +10,9 @@ const server = http.createServer(app);
 const io = socketio(server);
  io.on('connection', (socket)=>{
 console.log('we have a new connection...');
-socket.on();
+socket.on('disconnect', ()=>{
+    console.log('User had left');
+});
 });
 app.use(router);
 
